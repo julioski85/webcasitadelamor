@@ -20,6 +20,7 @@ const toggleMobileMenu = () => {
   const isOpen = menuToggle.classList.toggle('is-open');
   mobileMenu.classList.toggle('is-open', isOpen);
   menuToggle.setAttribute('aria-expanded', String(isOpen));
+  menuToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
   mobileMenu.setAttribute('aria-hidden', String(!isOpen));
 };
 
@@ -30,6 +31,7 @@ mobileMenu?.querySelectorAll('a').forEach((link) => {
     menuToggle.classList.remove('is-open');
     mobileMenu.classList.remove('is-open');
     menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Abrir menú');
     mobileMenu.setAttribute('aria-hidden', 'true');
   });
 });
@@ -50,10 +52,11 @@ const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add('is-visible');
-      revealObserver.unobserve(entry.target);
+    } else if (entry.boundingClientRect.top > 0) {
+      entry.target.classList.remove('is-visible');
     }
   });
-}, { threshold: 0.16 });
+}, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
 
 revealItems.forEach((item) => revealObserver.observe(item));
 
@@ -97,10 +100,11 @@ const setupGallerySlider = () => {
 
   const startAuto = () => {
     if (reducedMotion) return;
+    stopAuto();
     timer = window.setInterval(() => {
       index += 1;
       goTo(index, true);
-    }, 3200);
+    }, 2400);
   };
 
   const stopAuto = () => {

@@ -203,28 +203,41 @@ html[data-theme="dark"] .footer-logo {
 
 .menu-toggle {
   display: none;
-  flex-direction: column;
-  gap: 0.24rem;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  color: color-mix(in srgb, var(--text) 85%, var(--primary));
+  transition: color 240ms ease, transform 220ms ease, background 240ms ease;
 }
 
-.menu-toggle span {
-  width: 15px;
-  height: 1.6px;
+.menu-toggle__line {
+  position: absolute;
+  width: 17px;
+  height: 1.7px;
   border-radius: 999px;
   background: currentColor;
-  transition: transform 240ms ease, opacity 240ms ease;
+  transition: transform 260ms ease, opacity 240ms ease, width 260ms ease;
 }
 
-.menu-toggle.is-open span:nth-child(1) {
-  transform: translateY(5px) rotate(45deg);
+.menu-toggle__line:first-child {
+  transform: translateY(-4px);
 }
 
-.menu-toggle.is-open span:nth-child(2) {
-  opacity: 0;
+.menu-toggle__line:last-child {
+  width: 12px;
+  transform: translateY(4px);
 }
 
-.menu-toggle.is-open span:nth-child(3) {
-  transform: translateY(-5px) rotate(-45deg);
+.menu-toggle.is-open .menu-toggle__line:first-child {
+  transform: translateY(0) rotate(42deg);
+}
+
+.menu-toggle.is-open .menu-toggle__line:last-child {
+  width: 17px;
+  transform: translateY(0) rotate(-42deg);
 }
 
 .mobile-menu {
@@ -254,6 +267,13 @@ html[data-theme="dark"] .footer-logo {
   text-transform: uppercase;
   font-weight: 700;
   transition: transform 220ms ease, background 220ms ease, border-color 220ms ease, color 220ms ease, box-shadow 220ms ease;
+}
+
+.whatsapp-icon {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: currentColor;
+  flex-shrink: 0;
 }
 
 .button:hover,
@@ -715,15 +735,15 @@ html[data-theme="dark"] .footer-logo {
   gap: 0.5rem;
   padding: 0.85rem 0.95rem;
   border-radius: 999px;
-  background: #0f8a51;
+  background: linear-gradient(140deg, #1dbb67, #128c4f);
   color: #fff;
-  box-shadow: 0 16px 34px rgba(15, 138, 81, 0.32);
+  box-shadow: 0 18px 36px rgba(18, 140, 79, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.28);
 }
 
-.floating-whatsapp svg {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
+.floating-whatsapp .whatsapp-icon {
+  width: 21px;
+  height: 21px;
 }
 
 .lightbox {
@@ -778,14 +798,71 @@ html[data-theme="dark"] .footer-logo {
 }
 
 .reveal {
+  --reveal-duration: 760ms;
+  --reveal-delay: 0ms;
+  --reveal-distance: 28px;
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 700ms ease, transform 700ms ease;
+  transform: translateY(var(--reveal-distance)) scale(0.99);
+  transition:
+    opacity var(--reveal-duration) cubic-bezier(0.2, 0.8, 0.2, 1) var(--reveal-delay),
+    transform var(--reveal-duration) cubic-bezier(0.2, 0.8, 0.2, 1) var(--reveal-delay),
+    filter var(--reveal-duration) ease var(--reveal-delay);
+  filter: blur(2px);
 }
 
 .reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.section-heading.reveal {
+  --reveal-distance: 20px;
+}
+
+.split-layout__media.reveal,
+.showcase-stack.reveal {
+  --reveal-distance: 24px;
+}
+
+.split-layout__content.reveal,
+.showcase-copy.reveal {
+  --reveal-delay: 80ms;
+}
+
+.benefit-card.reveal:nth-child(2),
+.testimonial-card.reveal:nth-child(2),
+.hero-highlights.reveal article:nth-child(2) {
+  --reveal-delay: 110ms;
+}
+
+.benefit-card.reveal:nth-child(3),
+.testimonial-card.reveal:nth-child(3),
+.hero-highlights.reveal article:nth-child(3) {
+  --reveal-delay: 180ms;
+}
+
+.benefit-card.reveal:nth-child(4) {
+  --reveal-delay: 240ms;
+}
+
+.hero-highlights article,
+.benefit-card,
+.testimonial-card,
+.detail-grid article,
+.media-frame,
+.cta-banner,
+.footer-grid {
+  transition: transform 260ms ease, box-shadow 280ms ease, border-color 280ms ease, background 280ms ease;
+}
+
+.hero-highlights article:hover,
+.benefit-card:hover,
+.testimonial-card:hover,
+.detail-grid article:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-strong);
+  border-color: color-mix(in srgb, var(--primary) 36%, var(--line));
 }
 
 @media (max-width: 1080px) {
@@ -795,6 +872,7 @@ html[data-theme="dark"] .footer-logo {
 
   .menu-toggle {
     display: inline-flex;
+    position: relative;
   }
 
   .header-shell {
@@ -826,6 +904,12 @@ html[data-theme="dark"] .footer-logo {
 
   .mobile-menu .button {
     margin-block: 0.9rem 1rem;
+  }
+
+  .menu-toggle:hover,
+  .menu-toggle:focus-visible {
+    background: color-mix(in srgb, var(--surface) 72%, transparent);
+    color: var(--primary);
   }
 
   .split-layout,
