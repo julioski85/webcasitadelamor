@@ -249,9 +249,14 @@ html[data-theme="dark"] .footer-logo {
 }
 
 .mobile-menu.is-open {
-  max-height: 420px;
+  max-height: 560px;
   opacity: 1;
   pointer-events: auto;
+}
+
+.mobile-menu__link {
+  display: block;
+  width: 100%;
 }
 
 .button {
@@ -882,28 +887,58 @@ html[data-theme="dark"] .footer-logo {
   .mobile-menu {
     display: block;
     border-top: 1px solid transparent;
+    background: color-mix(in srgb, var(--surface-solid) 90%, transparent);
+    padding: 0.45rem 0.35rem 0.9rem;
   }
 
   .mobile-menu.is-open {
     border-top-color: var(--line);
   }
 
-  .mobile-menu a,
-  .mobile-menu .button {
-    margin: 0 1.2rem;
+  .mobile-menu__link,
+  .mobile-menu .mobile-menu__cta {
+    margin: 0 0.8rem;
   }
 
-  .mobile-menu a {
-    padding: 0.85rem 0;
-    font-size: 0.88rem;
+  .mobile-menu__link {
+    display: flex;
+    align-items: center;
+    min-height: 52px;
+    padding: 0.85rem 0.55rem;
+    font-size: 0.93rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.11em;
-    color: var(--muted);
+    letter-spacing: 0.1em;
+    color: color-mix(in srgb, var(--text) 86%, var(--muted));
     border-bottom: 1px solid color-mix(in srgb, var(--line) 75%, transparent);
+    transition: color 220ms ease, background 220ms ease, padding-left 220ms ease;
+    white-space: nowrap;
+    border-radius: 14px;
   }
 
-  .mobile-menu .button {
-    margin-block: 0.9rem 1rem;
+  .mobile-menu__link:hover,
+  .mobile-menu__link:focus-visible {
+    color: var(--primary-deep);
+    background: color-mix(in srgb, var(--surface-strong) 72%, transparent);
+    padding-left: 0.95rem;
+  }
+
+  .mobile-menu__cta {
+    width: calc(100% - 1.6rem);
+    margin-top: 1rem;
+    min-height: 58px;
+    padding-inline: 1.15rem;
+    font-size: 0.84rem;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    white-space: nowrap;
+    box-shadow: 0 20px 38px rgba(90, 47, 20, 0.3);
+    background: linear-gradient(140deg, #b66a3a 0%, #7a3f1e 55%, #5a2f14 100%);
+  }
+
+  .mobile-menu__cta .whatsapp-icon {
+    width: 1.16rem;
+    height: 1.16rem;
   }
 
   .menu-toggle:hover,
