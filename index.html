@@ -8,32 +8,48 @@
   <meta name="theme-color" content="#f5efe6" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="page-shell">
     <header class="site-header">
-      <div class="container header-inner">
-        <a href="#inicio" class="brand" aria-label="Ir al inicio de La Casita del Amor">
-          <img src="assets/logo-la-casita-del-amor.png" alt="La Casita del Amor" class="brand-logo" />
-        </a>
+      <div class="container header-shell">
+        <div class="header-inner">
+          <a href="#inicio" class="brand" aria-label="Ir al inicio de La Casita del Amor">
+            <img src="assets/logo-la-casita-del-amor.png" alt="La Casita del Amor" class="brand-logo" />
+          </a>
 
-        <nav class="site-nav" aria-label="Navegación principal">
+          <nav class="site-nav" aria-label="Navegación principal">
+            <a href="#experiencia">Experiencia</a>
+            <a href="#beneficios">Beneficios</a>
+            <a href="#galeria">Galería</a>
+            <a href="#testimonios">Testimonios</a>
+            <a href="#contacto">Contacto</a>
+          </nav>
+
+          <div class="header-actions">
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar entre modo claro y oscuro">
+              <span class="theme-toggle__sun">☼</span>
+              <span class="theme-toggle__moon">◐</span>
+            </button>
+            <a class="button button--primary button--compact" href="https://wa.me/525520466302?text=Hola,%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20la%20experiencia%20de%20temazcal%20en%20La%20Casita%20del%20Amor." target="_blank" rel="noopener noreferrer">Reserva por WhatsApp</a>
+            <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+
+        <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil" aria-hidden="true">
           <a href="#experiencia">Experiencia</a>
           <a href="#beneficios">Beneficios</a>
           <a href="#galeria">Galería</a>
           <a href="#testimonios">Testimonios</a>
           <a href="#contacto">Contacto</a>
+          <a class="button button--primary" href="https://wa.me/525520466302?text=Hola,%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20la%20experiencia%20de%20temazcal%20en%20La%20Casita%20del%20Amor." target="_blank" rel="noopener noreferrer">Reserva por WhatsApp</a>
         </nav>
-
-        <div class="header-actions">
-          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar entre modo claro y oscuro">
-            <span class="theme-toggle__sun">☼</span>
-            <span class="theme-toggle__moon">◐</span>
-          </button>
-          <a class="button button--primary button--compact" href="https://wa.me/525520466302?text=Hola,%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20la%20experiencia%20de%20temazcal%20en%20La%20Casita%20del%20Amor." target="_blank" rel="noopener noreferrer">Reserva por WhatsApp</a>
-        </div>
       </div>
     </header>
 
@@ -194,44 +210,45 @@
         <div class="container">
           <div class="section-heading section-heading--center reveal">
             <span class="eyebrow">Galería</span>
-            <h2>Una selección visual pensada para inspirar, sin romper la armonía del layout.</h2>
+            <h2>Una selección visual para inspirar con armonía editorial y lujo contemporáneo.</h2>
             <p>
-              Las imágenes se integran dentro de una estructura precisa, elegante y consistente para mantener orden visual perfecto
-              en cualquier pantalla.
+              Todas las imágenes viven dentro de proporciones consistentes para mantener una experiencia visual limpia y premium en cualquier pantalla.
             </p>
           </div>
 
-          <div class="gallery-grid">
-            <button class="media-card media-card--wide reveal" type="button" data-full="assets/jardin-principal.jpg" data-caption="Jardines principales de La Casita del Amor">
-              <img src="assets/jardin-principal.jpg" alt="Jardines principales de La Casita del Amor" loading="lazy" />
-            </button>
-            <button class="media-card media-card--tall reveal" type="button" data-full="assets/estatua-vertical.jpg" data-caption="Escultura ceremonial dentro del jardín">
-              <img src="assets/estatua-vertical.jpg" alt="Escultura ceremonial dentro del jardín" loading="lazy" />
-            </button>
-            <button class="media-card reveal" type="button" data-full="assets/sala-espera.jpg" data-caption="Área interior de descanso y espera">
-              <img src="assets/sala-espera.jpg" alt="Área interior de descanso y espera" loading="lazy" />
-            </button>
-            <button class="media-card reveal" type="button" data-full="assets/entrada-rana.jpg" data-caption="Entrada con detalles escultóricos y jardín">
-              <img src="assets/entrada-rana.jpg" alt="Entrada con detalles escultóricos y jardín" loading="lazy" />
-            </button>
-            <button class="media-card media-card--wide reveal" type="button" data-full="assets/temazcal-interior-1.jpg" data-caption="Interior del temazcal con iluminación cálida">
-              <img src="assets/temazcal-interior-1.jpg" alt="Interior del temazcal con iluminación cálida" loading="lazy" />
-            </button>
-            <button class="media-card reveal" type="button" data-full="assets/hero-temazcal-nocturno.jpg" data-caption="Acceso al temazcal en atmósfera nocturna">
-              <img src="assets/hero-temazcal-nocturno.jpg" alt="Acceso al temazcal en atmósfera nocturna" loading="lazy" />
-            </button>
-            <button class="media-card reveal" type="button" data-full="assets/galeria-carreta.jpg" data-caption="Jardín con carreta de madera y vegetación">
-              <img src="assets/galeria-carreta.jpg" alt="Jardín con carreta de madera y vegetación" loading="lazy" />
-            </button>
-            <button class="media-card reveal" type="button" data-full="assets/jardin-estatua.jpg" data-caption="Vista lateral del jardín y la escultura principal">
-              <img src="assets/jardin-estatua.jpg" alt="Vista lateral del jardín y la escultura principal" loading="lazy" />
-            </button>
-            <button class="media-card media-card--wide reveal" type="button" data-full="assets/estatua-principal.jpg" data-caption="Escultura ceremonial en el espacio exterior">
-              <img src="assets/estatua-principal.jpg" alt="Escultura ceremonial en el espacio exterior" loading="lazy" />
-            </button>
-            <button class="media-card media-card--tall reveal" type="button" data-full="assets/ceremonia.jpg" data-caption="Momento ceremonial durante la experiencia">
-              <img src="assets/ceremonia.jpg" alt="Momento ceremonial durante la experiencia" loading="lazy" />
-            </button>
+          <div class="gallery-slider reveal" id="gallerySlider" aria-label="Galería destacada">
+            <div class="gallery-track" id="galleryTrack">
+              <button class="gallery-slide" type="button" data-full="assets/jardin-principal.jpg" data-caption="Jardines principales de La Casita del Amor">
+                <img src="assets/jardin-principal.jpg" alt="Jardines principales de La Casita del Amor" loading="lazy" />
+              </button>
+              <button class="gallery-slide" type="button" data-full="assets/estatua-vertical.jpg" data-caption="Escultura ceremonial dentro del jardín">
+                <img src="assets/estatua-vertical.jpg" alt="Escultura ceremonial dentro del jardín" loading="lazy" />
+              </button>
+              <button class="gallery-slide" type="button" data-full="assets/sala-espera.jpg" data-caption="Área interior de descanso y espera">
+                <img src="assets/sala-espera.jpg" alt="Área interior de descanso y espera" loading="lazy" />
+              </button>
+              <button class="gallery-slide" type="button" data-full="assets/entrada-rana.jpg" data-caption="Entrada con detalles escultóricos y jardín">
+                <img src="assets/entrada-rana.jpg" alt="Entrada con detalles escultóricos y jardín" loading="lazy" />
+              </button>
+              <button class="gallery-slide" type="button" data-full="assets/temazcal-interior-1.jpg" data-caption="Interior del temazcal con iluminación cálida">
+                <img src="assets/temazcal-interior-1.jpg" alt="Interior del temazcal con iluminación cálida" loading="lazy" />
+              </button>
+              <button class="gallery-slide" type="button" data-full="assets/hero-temazcal-nocturno.jpg" data-caption="Acceso al temazcal en atmósfera nocturna">
+                <img src="assets/hero-temazcal-nocturno.jpg" alt="Acceso al temazcal en atmósfera nocturna" loading="lazy" />
+              </button>
+              <button class="gallery-slide" type="button" data-full="assets/galeria-carreta.jpg" data-caption="Jardín con carreta de madera y vegetación">
+                <img src="assets/galeria-carreta.jpg" alt="Jardín con carreta de madera y vegetación" loading="lazy" />
+              </button>
+              <button class="gallery-slide" type="button" data-full="assets/jardin-estatua.jpg" data-caption="Vista lateral del jardín y la escultura principal">
+                <img src="assets/jardin-estatua.jpg" alt="Vista lateral del jardín y la escultura principal" loading="lazy" />
+              </button>
+              <button class="gallery-slide" type="button" data-full="assets/estatua-principal.jpg" data-caption="Escultura ceremonial en el espacio exterior">
+                <img src="assets/estatua-principal.jpg" alt="Escultura ceremonial en el espacio exterior" loading="lazy" />
+              </button>
+              <button class="gallery-slide" type="button" data-full="assets/ceremonia.jpg" data-caption="Momento ceremonial durante la experiencia">
+                <img src="assets/ceremonia.jpg" alt="Momento ceremonial durante la experiencia" loading="lazy" />
+              </button>
+            </div>
           </div>
         </div>
       </section>
